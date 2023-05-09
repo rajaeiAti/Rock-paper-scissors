@@ -54,6 +54,38 @@
             }
         }
 
+        function game(){
+            let computerScore = 0;
+            let playerScore = 0;
+            while(computerScore < 5 || playerScore < 5 ){
+                let computerSelection = getComputerChoice();
+                let playerSelection = getPlayerChoice();
+                let status = playRound(computerSelection,playerSelection);
+                if(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors'){
+                    if (status === 'player win'){
+                        ++playerScore;
+                    }else if(status === 'player lose'){
+                        ++computerScore;
+                    }
+                }else{
+                    alert("Not an acceptable choice.")
+                }
+
+                console.log('status = '+status);
+                console.log('CHOICES = You : '+playerSelection+'  , Computer : '+computerSelection);
+                console.log('SCORE = You : '+playerScore+'  , Computer : '+computerScore);
+
+                if(computerScore == 5){
+                    alert('YOU LOSE');
+                    return;
+                }else if(playerScore == 5){
+                    alert('Congratulations! YOU WIN');
+                    return;
+                }
+            }
+        }
+
+
 
     </script>
 </body>
