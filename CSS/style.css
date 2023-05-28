@@ -1,0 +1,21 @@
+#container{
+    display:flex;
+    flex-direction: column;
+    gap: 15px;
+}
+#choices{
+    display:flex;
+    place-content: center center;
+    gap:30px;
+}
+.item{
+    max-width: 200px;
+    flex: auto;
+    border: solid 2px rgb(231, 170, 55);
+    padding: 20px;
+}
+#status,#score{
+    border: solid 2px rgb(231, 170, 55);
+    text-align: center;
+    padding: 15px;
+}

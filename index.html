@@ -4,89 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="JS/script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    <script>
-        
-        function getComputerChoice(){
-            const choices = ['rock' , 'paper' , 'scissors'];
-            let randomItem = Math.floor(Math.random() * 3);
-            return choices[randomItem];
-        }
-
-        function getPlayerChoice(){
-            let playerSelectionWithoutCaseCheck = prompt("What is your choice? Rock, Paper or Scissors?",'');
-            return playerSelectionWithoutCaseCheck.toLowerCase();
-        }
-
-        function playRound(computer,player){
-            switch (player){
-                case ('rock'):
-                    if(computer === 'scissors'){
-                        return 'player win';
-                    }else if(computer === 'rock'){
-                        return 'same';
-                    }else{
-                        return 'player lose';
-                    }
-                break;
-                case ('paper'):
-                    if(computer === 'rock'){
-                        return 'player win';
-                    }else if(computer === 'paper'){
-                        return 'same';
-                    }else{
-                        return 'player lose';
-                    }
-                break;
-                case ('scissors'):
-                    if(computer === 'paper'){
-                        return 'player win';
-                    }else if(computer === 'scissors'){
-                        return 'same';
-                    }else{
-                        return 'player lose';
-                    }
-                break;
-                default:
-                    return 'ERROR';
-            }
-        }
-
-        function game(){
-            let computerScore = 0;
-            let playerScore = 0;
-            while(computerScore < 5 || playerScore < 5 ){
-                let computerSelection = getComputerChoice();
-                let playerSelection = getPlayerChoice();
-                let status = playRound(computerSelection,playerSelection);
-                if(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors'){
-                    if (status === 'player win'){
-                        ++playerScore;
-                    }else if(status === 'player lose'){
-                        ++computerScore;
-                    }
-                }else{
-                    alert("Not an acceptable choice.")
-                }
-
-                console.log('status = '+status);
-                console.log('CHOICES = You : '+playerSelection+'  , Computer : '+computerSelection);
-                console.log('SCORE = You : '+playerScore+'  , Computer : '+computerScore);
-
-                if(computerScore == 5){
-                    alert('YOU LOSE');
-                    return;
-                }else if(playerScore == 5){
-                    alert('Congratulations! YOU WIN');
-                    return;
-                }
-            }
-        }
-
-        console.log(game())
-
-    </script>
+    <div id="container">
+        <div id="choices">
+            <button class="item" id="rock" value="rock" >ROCK</button>
+            <button class="item" id="paper" value="paper">PAPER</button>
+            <button class="item" id="scissors" value="scissors">SCISSORS</button>
+        </div>
+        <div id="status"></div>
+        <div id="score"></div>
+    </div>
 </body>
 </html>
